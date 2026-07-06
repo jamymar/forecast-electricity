@@ -108,7 +108,7 @@ def main():
 
     # 4. Écrire le lot de prédictions du backtest dans la table predictions_chronos
     if all_predictions:
-        logging.info(f"Création de la table de prédictions si nécessaire...")
+        logging.info("Création de la table de prédictions si nécessaire...")
         cursor.execute("""
             CREATE TABLE IF NOT EXISTS predictions_chronos (
                 timestamp TIMESTAMPTZ PRIMARY KEY,

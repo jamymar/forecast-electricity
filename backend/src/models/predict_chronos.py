@@ -78,10 +78,8 @@ def main():
         num_samples=20
     )
     
-    # Calculer la médiane et les percentiles 10% / 90%
+    # Calculer la médiane
     predictions = torch.median(forecast[0], dim=0).values.numpy()
-    q10 = torch.quantile(forecast[0], 0.1, dim=0).numpy()
-    q90 = torch.quantile(forecast[0], 0.9, dim=0).numpy()
     
     logging.info(f"Prédictions générées avec succès (amplitude moyenne: {np.mean(predictions):.0f} MW)")
 
