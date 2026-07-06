@@ -1,0 +1,63 @@
+# Répertoires de dépendances
+node_modules/
+frontend/node_modules/
+jspm_packages/
+web_modules/
+
+# Dossiers de compilation (build)
+dist/
+build/
+frontend/dist/
+out/
+.next/
+
+# Variables d'environnement locales (Secrets Supabase, API, etc.)
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+*.env
+frontend/.env*
+
+# Fichiers et dossiers archivés / Sauvegardes
+frontend_old/
+*_old/
+backup/
+backups/
+
+# Environnements virtuels Python (si présents dans le projet)
+.venv/
+venv/
+env/
+ENV/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.ipynb_checkpoints/
+
+# Fichiers journaux et logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Fichiers système (Mac / Windows)
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Fichiers de configuration IDE & Éditeurs
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp
