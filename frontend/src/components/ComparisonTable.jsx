@@ -3,8 +3,9 @@ import { Award } from 'lucide-react';
 
 export default function ComparisonTable({ mapes }) {
   const models = [
-    { id: 'rte', name: 'Prévision RTE', source: "Réseau de Transport d'Électricité", mape: mapes.rte },
     { id: 'timesfm', name: 'Google TimesFM 2.5', source: 'Zero-Shot IA (1024 points de contexte)', mape: mapes.timesfm },
+    { id: 'chronos', name: 'Amazon Chronos-2', source: 'Zero-Shot IA (Chronos-T5-Base)', mape: mapes.chronos },
+    { id: 'rte', name: 'Prévision RTE', source: "Réseau de Transport d'Électricité", mape: mapes.rte },
     { id: 'lightgbm', name: 'LightGBM Direct', source: "Boosting d'arbres (variables qualitatives natives + météo)", mape: mapes.lightgbm },
     { id: 'naive', name: 'Modèle Naïf Saisonnier (J-7)', source: 'Baseline (Copie de la semaine précédente)', mape: mapes.naive }
   ];

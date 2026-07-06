@@ -139,6 +139,7 @@ export default function App() {
   const [mapes, setMapes] = useState({
     rte: null,
     timesfm: null,
+    chronos: null,
     lightgbm: null,
     naive: null
   });
@@ -149,6 +150,7 @@ export default function App() {
       consumption: [],
       forecast: [],
       timesfm: [],
+      chronos: [],
       lightgbm: [],
       naive: [],
       nuclear: [],
@@ -224,17 +226,19 @@ export default function App() {
       const [
         { data: forecastData },
         { data: timesfmData },
+        { data: chronosData },
         { data: naiveData },
         { data: lightgbmData }
       ] = await Promise.all([
         supabase.from('predictions_rte').select('*').gte('timestamp', startIso).lte('timestamp', forecastEndIso).order('timestamp', { ascending: true }),
         supabase.from('predictions_timesfm').select('*').gte('timestamp', startIso).lte('timestamp', forecastEndIso).order('timestamp', { ascending: true }),
+        supabase.from('predictions_chronos').select('*').gte('timestamp', startIso).lte('timestamp', forecastEndIso).order('timestamp', { ascending: true }),
         supabase.from('predictions_naive').select('*').gte('timestamp', startIso).lte('timestamp', forecastEndIso).order('timestamp', { ascending: true }),
         supabase.from('predictions_lightgbm').select('*').gte('timestamp', startIso).lte('timestamp', forecastEndIso).order('timestamp', { ascending: true })
       ]);
 
       setSystemStatus({ type: 'success', message: `${historicalData.length} points chargés` });
-      processData(historicalData, forecastData || [], timesfmData || [], naiveData || [], lightgbmData || [], startIso, forecastEndIso);
+      processData(historicalData, forecastData || [], timesfmData || [], chronosData || [], naiveData || [], lightgbmData || [], startIso, forecastEndIso);
     } catch (err) {
       console.error(err);
       setSystemStatus({ type: 'error', message: 'Erreur de chargement' });
@@ -243,7 +247,7 @@ export default function App() {
     }
   };
 
-  const processData = (historicalData, forecastData, timesfmData, naiveData, lightgbmData, startIso, forecastEndIso) => {
+  const processData = (historicalData, forecastData, timesfmData, chronosData, naiveData, lightgbmData, startIso, forecastEndIso) => {
     const startMs = new Date(startIso).getTime();
     const forecastEndMs = new Date(forecastEndIso).getTime();
     const historyEndMs = historicalData.length > 0 ? new Date(historicalData[historicalData.length - 1].timestamp).getTime() : new Date().getTime();
@@ -332,12 +336,14 @@ export default function App() {
 
     const mapeRte = calcMape(forecastData);
     const mapeTimesfm = calcMape(timesfmData);
+    const mapeChronos = calcMape(chronosData);
     const mapeNaive = calcMape(naiveData);
     const mapeLightgbm = calcMape(lightgbmData);
 
     setMapes({
       rte: mapeRte,
       timesfm: mapeTimesfm,
+      chronos: mapeChronos,
       naive: mapeNaive,
       lightgbm: mapeLightgbm
     });
@@ -380,6 +386,7 @@ export default function App() {
         consumption: consumption_series,
         forecast: mapSeries(forecastData),
         timesfm: mapSeries(timesfmData),
+        chronos: mapSeries(chronosData),
         naive: mapSeries(naiveData),
         lightgbm: mapSeries(lightgbmData),
         nuclear, gas, coal, oil, wind, solar, hydro, bioenergy,

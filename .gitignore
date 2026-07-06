@@ -61,3 +61,6 @@ Thumbs.db
 *.njsproj
 *.sln
 *.swp
+
+# Fichiers de poids de modèles locaux (Chronos)
+chronos-2-finetuned/

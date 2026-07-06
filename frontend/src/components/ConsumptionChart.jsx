@@ -26,8 +26,8 @@ export default function ConsumptionChart({ series, startMs, forecastEndMs, theme
         background: 'transparent'
       },
       theme: { mode: theme },
-      colors: ['#0056a4', '#7c3aed', '#10b981', '#f58220', '#94a3b8'],
-      stroke: { curve: 'smooth', width: [3, 2.5, 2.5, 2.5, 2.5] },
+      colors: ['#0056a4', '#7c3aed', '#10b981', '#ec4899', '#f58220', '#94a3b8'],
+      stroke: { curve: 'smooth', width: [3, 2.5, 2.5, 2.5, 2.5, 2.5] },
       dataLabels: { enabled: false },
       markers: { size: 0, hover: { size: 5 } },
       grid: gridStyle,
@@ -59,6 +59,7 @@ export default function ConsumptionChart({ series, startMs, forecastEndMs, theme
         { name: 'Consommation réelle', data: series.consumption || [] },
         { name: 'Prévision RTE', data: series.forecast || [] },
         { name: 'Google TimesFM', data: series.timesfm || [] },
+        { name: 'Amazon Chronos-2', data: series.chronos || [] },
         { name: 'LightGBM Direct', data: series.lightgbm || [] },
         { name: 'Modèle Naïf (J-7)', data: series.naive || [] }
       ]
