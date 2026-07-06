@@ -16,8 +16,6 @@ logging.basicConfig(
 )
 
 def clean(val):
-    return Math.round(Number(val)) if val is not None else 0 # Python translation below
-def clean_val(val):
     return int(round(float(val))) if val is not None else 0
 
 def main():

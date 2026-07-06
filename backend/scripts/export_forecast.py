@@ -1,7 +1,6 @@
 import json
 import os
-from datetime import datetime, timedelta
-import psycopg2
+from datetime import timedelta
 from src.db.client import get_connection
 
 def export_to_json(output_path="../PORTFOLIO FINAL/assets/data/latest_forecast.json"):

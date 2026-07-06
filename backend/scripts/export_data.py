@@ -1,7 +1,7 @@
 import sys
 import os
 import json
-from datetime import datetime, timedelta
+from datetime import timedelta
 
 # Ajouter le chemin parent (dossier backend/) pour résoudre les imports de src
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
