@@ -23,4 +23,4 @@ jobs:
         run: pip install ruff
 
       - name: Run ruff
-        run: ruff check src/ scripts/ app.py
+        run: ruff check backend/src/ backend/scripts/ backend/app.py
