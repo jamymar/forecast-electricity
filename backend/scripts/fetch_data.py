@@ -11,6 +11,8 @@ from src.db.client import get_connection
 from src.ingestion.rte_client import fetch_realised
 from src.processing.features import compute_hourly_avg
 
+os.makedirs("logs", exist_ok=True)
+
 logging.basicConfig(
     level=logging.INFO,
     format='%(asctime)s - %(levelname)s - %(message)s',
