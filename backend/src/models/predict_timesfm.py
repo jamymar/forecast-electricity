@@ -64,8 +64,8 @@ def main():
         return
 
     # Étape 4 : Lancement de la prédiction (Inférence)
-    # Horizon de 96 heures (4 jours dans le futur)
-    horizon = 96
+    # Horizon de 48 heures (2 jours dans le futur)
+    horizon = 48
     logging.info(f"Lancement de la prédiction sur un horizon de {horizon} heures...")
     
     # TimesFM attend une liste de séries temporelles 1D
