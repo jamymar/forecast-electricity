@@ -24,8 +24,8 @@ jobs:
       - name: Install dependencies
         run: |
           pip install psycopg2-binary pandas requests python-dotenv
-          pip install torch lightgbm scikit-learn
-          pip install chronos-forecasting timesfm
+          pip install torch lightgbm scikit-learn xgboost
+          pip install chronos-forecasting timesfm holidays vacances-scolaires-france
 
       - name: Create logs directory
         run: mkdir -p logs
